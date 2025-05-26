@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+package com.trabajoentornos;
+
+public class Catalogo {
+    private List<Libro> librosDisponibles;
+
+    public Catalogo() {
+        librosDisponibles = new ArrayList<>();
+        librosDisponibles.add(new Libro("1984", "George Orwell", "12345", 9.99));
+        librosDisponibles.add(new Libro("El Principito", "Antoine de Saint-Exupéry", "67890", 5.99));
+    }
+
+    public List<Libro> buscarLibros(String palabrasClave) {
+        List<Libro> resultados = new ArrayList<>();
+        for (Libro libro : librosDisponibles) {
+            if (libro.getTitulo().toLowerCase().contains(palabrasClave.toLowerCase())) {
+                resultados.add(libro);
+            }
+        }
+        return resultados;
+    }
+
+    public String recopilarDatos(Libro libro) {
+        return libro.getDatos();
+    }
+}
